@@ -102,7 +102,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/adrianhajdin/askwell
+git clone https://github.com/jsmastery-pro/askwell.git
 cd askwell
 ```
 
@@ -122,7 +122,7 @@ Create a new file named `.env` in the root of your project and add the following
 
 ```
 
-Replace the placeholder values with your real credentials. You can get these by signing up at: [**Supabase**](https://supabase.com/), [**Clerk**](https://clerk.com/), [**Arcjet**](https://arcjet.com/), and [**PostHog**](https://posthog.com/).
+Replace the placeholder values with your real credentials. You can get these by signing up at: [**Supabase**](https://jsm.dev/jsmhq-supabase), [**Clerk**](https://jsm.dev/jsmhq-clerk), [**Arcjet**](https://jsm.dev/jsmhq-arcjet), and [**PostHog**](https://jsm.dev/jsmhq-posthog).
 
 **Running the Project**
 
