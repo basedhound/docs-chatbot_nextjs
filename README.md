@@ -6,12 +6,18 @@
   <br />
 
   <div>
-<img src="https://img.shields.io/badge/-Next.js-black?style=for-the-badge&logo=Next.js&logoColor=white" />
-<img src="https://img.shields.io/badge/-Typescript-3178C6?style=for-the-badge&logo=Typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+<img src="https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/-Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" />
+<img src="https://img.shields.io/badge/-Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" /><br/>
 
+<img src="https://img.shields.io/badge/-Arcjet-000000?style=for-the-badge&logoColor=white" />
+<img src="https://img.shields.io/badge/-PostHog-6B4226?style=for-the-badge&logo=posthog&logoColor=white" />
+<img src="https://img.shields.io/badge/-CodeRabbit-FF570A?style=for-the-badge&logo=coderabbit&logoColor=white" />
+<img src="https://img.shields.io/badge/-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
   </div>
 
-  <h3 align="center">Project Title Here</h3>
+  <h3 align="center">AskWell | AI Chatbot Trained on Your Docs</h3>
 
    <div align="center">
      Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/watch?v=XUkNR-JfHwo" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!
@@ -37,7 +43,9 @@ If you prefer visual learning, this is the perfect resource for you. Follow our 
 
 ## <a name="introduction">✨ Introduction</a>
 
-AI-powered Nike-style eCommerce built with Devin AI, Next.js, Drizzle ORM, and Better Auth! Devin generates your product pages, cart, and checkout flows—powered by Stripe payments and a PostgreSQL (Neon) backend. Featuring a clean, modular UI and tools tailored for devs who want to ship fast.
+AskWell is a SaaS that gives any business an AI chatbot for its website. A business signs up, creates a project, and uploads its docs, such as a product guide, a pricing page, or an FAQ. It then pastes a single script tag into its site, and a chat bubble appears that answers visitors using only those docs. When the answer isn't in the docs, the bot says so instead of making something up. Every conversation lands in the owner's dashboard, and on the Pro plan owners can restyle the widget and remove the AskWell badge.
+
+Because the chatbot is public and every answer costs money, AskWell is built with abuse protection on the chat endpoint and per-answer cost tracking from day one, so owners can offer a fast, always-on assistant without worrying about runaway usage.
 
 If you're getting started and need assistance or face any bugs, join our active Discord community with over **50k+** members. It's a place where people help each other out.
 
@@ -45,37 +53,37 @@ If you're getting started and need assistance or face any bugs, join our active 
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
-- **[Better Auth](https://www.better-auth.com/)** is a framework-agnostic authentication and authorization library for TypeScript. It provides built-in support for email and password authentication, social sign-on (Google, GitHub, Apple, and more), and multi-factor authentication, simplifying user authentication and account management.
+- **[Supabase](https://jsm.dev/jsmhq-supabase)** is an open-source backend platform built on Postgres that provides a database, storage, and APIs out of the box. In AskWell, it stores projects, uploaded knowledge, and conversations, with separate development and production projects to keep live data isolated.
 
-- **[Devin AI](https://docs.devin.ai/get-started/devin-intro)** is an autonomous AI software engineer by Cognition Labs that independently plans, writes, debugs, and deploys full applications from natural language prompts. It integrates with tools like Slack, Linear, and Jira to manage tasks and pull requests, and learns new technologies on the fly by reading documentation.
+- **[Clerk](https://jsm.dev/jsmhq-clerk)** is an authentication and user management platform with drop-in components for sign-in, sign-up, and profiles. AskWell uses it for business owner accounts and for the paid Pro plan that unlocks widget customization.
 
-- **[Drizzle ORM](https://orm.drizzle.team/docs/overview)** is a lightweight and performant TypeScript ORM designed with developer experience in mind. It provides a seamless interface between application code and database operations while maintaining high performance and reliability.
+- **[Arcjet](https://jsm.dev/jsmhq-arcjet)** is a developer-first security layer that adds protections like rate limiting and bot detection directly in application code. It guards AskWell's public chat endpoint, so anyone on the internet can talk to the bot without running up costs through abuse.
 
-- **[Neon](https://neon.com/)** is a fully managed, serverless PostgreSQL database platform. It offers features like instant provisioning, autoscaling, and database branching, enabling developers to build scalable applications without managing infrastructure.
+- **[PostHog](https://jsm.dev/jsmhq-posthog)** is an open-source product analytics platform for tracking events, usage, and user behavior. In AskWell, it powers conversation analytics and shows exactly what each AI answer costs.
 
-- **[Next.js](https://nextjs.org/docs)** is a powerful React framework for building full-stack web applications. It simplifies development with features like server-side rendering, static site generation, and API routes, enabling developers to focus on building products and shipping quickly.
+- **[CodeRabbit](https://jsm.dev/jsmhq-coderabbit)** is an AI code review tool that automatically reviews pull requests and leaves line-by-line feedback. Every pull request to AskWell is reviewed by CodeRabbit before it's merged into main.
 
-- **[PostgreSQL](https://www.postgresql.org/)** is a powerful, open-source relational database system known for its reliability, data integrity, and robust feature set. It supports advanced data types, full ACID compliance, and extensibility, making it suitable for a wide range of applications.
-
-- **[Stripe](https://stripe.com/)** is a payment gateway that enables businesses to accept, process, and manage various payment methods, such as credit cards, debit cards, and digital wallets, in a secure and efficient manner. It simplifies the payment process for developers and businesses alike.
-
-- **[TypeScript](https://www.typescriptlang.org/)** is a superset of JavaScript that adds static typing, providing better tooling, code quality, and error detection for developers. It is ideal for building large-scale applications and enhances the development experience.
-
-- **[Zustand](https://zustand-demo.pmnd.rs)** is a minimal, hook-based state management library for React. It lets you manage global state with zero boilerplate, no context providers, and excellent performance through selective state subscriptions.
+- **[Vercel](https://vercel.com/)** is a cloud platform for deploying and hosting web applications with automatic preview deployments. It builds a preview of every pull request during development and hosts AskWell in production.
 
 ## <a name="features">🔋 Features</a>
 
-👉 **Landing Page**: A fast, engaging homepage that introduces your brand and products with smooth animations and clear calls to action.
+👉 **Project Workspaces**: Business owners sign up and create a separate project for each website they want to support.
 
-👉 **Product Listing Page**: Browse all products with filters, sorting, and real-time availability—powered by Devin AI-generated content for dynamic updates.
+👉 **Knowledge Uploads**: Upload docs like product guides, pricing pages, and FAQs, and see each one marked ready once it's processed.
 
-👉 **Auth Pages**: Secure and seamless user signup, login, and password recovery using Better Auth, ensuring smooth access without backend hassles.
+👉 **One-Line Embed**: Copy a single script tag into any website to add a floating chat bubble.
 
-👉 **Product Details Page**: Detailed product info, images, and reviews with AI-enhanced descriptions to help customers make confident buying decisions.
+👉 **Grounded AI Answers**: The chatbot answers visitors only from the uploaded docs and says it doesn't know when the answer isn't there.
 
-👉 **Cart Page**: Intuitive cart management allowing users to add, remove, and update quantities, with instant price recalculations and persistent state via Zustand.
+👉 **Conversations Dashboard**: Every visitor chat is saved and viewable in the owner's dashboard.
 
-👉 **Order Page**: Track order history and status with reliable data stored in PostgreSQL (Neon), plus secure payments handled by Stripe integration.
+👉 **Answer Cost Analytics**: Track usage and see what each AI answer costs.
+
+👉 **Pro Plan Billing**: Upgrade from Free to Pro to unlock paid features.
+
+👉 **Widget Customization**: Pro users can change the widget's colors and remove the AskWell badge, with changes showing up live on their site.
+
+👉 **Public Endpoint Protection**: Rate limiting and bot protection keep the open chat from being abused.
 
 And many more, including code architecture and reusability.
 
@@ -94,8 +102,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone
-cd
+git clone https://github.com/adrianhajdin/askwell
+cd askwell
 ```
 
 **Installation**
@@ -114,7 +122,7 @@ Create a new file named `.env` in the root of your project and add the following
 
 ```
 
-Replace the placeholder values with your real credentials. You can get these by signing up at: [**Example**](https://jsm.dev/example).
+Replace the placeholder values with your real credentials. You can get these by signing up at: [**Supabase**](https://supabase.com/), [**Clerk**](https://clerk.com/), [**Arcjet**](https://arcjet.com/), and [**PostHog**](https://posthog.com/).
 
 **Running the Project**
 
@@ -126,20 +134,19 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 ## <a name="links">🔗 Assets</a>
 
-Assets and snippets used in the project can be found in the **[video kit]()**.
+Assets and snippets used in the project can be found in the **[video kit](https://jsm.dev/jsmhq-kit)**.
 
-<a href="" target="_blank">
+<a href="https://jsm.dev/jsmhq-kit" target="_blank">
   <img src="public/readme/readme-videokit.webp" alt="Video Kit Banner">
 </a>
 
 ## <a name="more">🚀 More</a>
 
-**Advance your skills with Next.js Pro Course**
+**Advance your skills with our Pro Course**
 
 Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning adventure. They're packed with
 detailed explanations, cool features, and exercises to boost your skills. Give it a go!
 
-<a href="" target="_blank">
+<a href="https://jsm.dev/jsmhq-engineer" target="_blank">
   <img src="public/readme/readme-jsmpro.webp" alt="Project Banner">
 </a>
-# jsmhq-sandboxes_nextjs
