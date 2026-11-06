@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+
+# build output
+.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Widget loader, built into the web app's public/ by apps/web/scripts/build-widget.mjs
+apps/web/public/widget.js
+
+# Vercel
+.vercel/
+
+# Supabase CLI cache (written by pnpm db:types)
+supabase/.temp/
+
+# env files (keep .env.example tracked)
+.env
+.env*.local
+!.env.example
+
+# OS / logs
+.DS_Store
+*.pem
+npm-debug.log*
+.pnpm-debug.log*

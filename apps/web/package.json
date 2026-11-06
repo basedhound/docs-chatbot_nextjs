@@ -1,0 +1,39 @@
+{
+  "name": "@askwell/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "node scripts/build-widget.mjs --dev",
+    "build": "node scripts/build-widget.mjs && next build",
+    "start": "next start",
+    "typecheck": "next typegen && tsc --noEmit"
+  },
+  "dependencies": {
+    "@arcjet/next": "1.15.0",
+    "@askwell/db": "workspace:*",
+    "@askwell/shared": "workspace:*",
+    "@clerk/nextjs": "7.9.23",
+    "@supabase/supabase-js": "2.118.0",
+    "next": "16.4.3",
+    "openai": "7.47.0",
+    "posthog-js": "1.445.3",
+    "posthog-node": "5.61.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "server-only": "0.0.1",
+    "unpdf": "2.1.0"
+  },
+  "devDependencies": {
+    "@askwell/widget": "workspace:*",
+    "@tailwindcss/turbopack": "4.3.3",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3"
+  }
+}

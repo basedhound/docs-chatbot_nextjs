@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-    <a href="" target="_blank">
+    <a href="https://youtu.be/Nq8uOOMH9fg" target="_blank">
       <img src="public/readme/readme-hero.webp" alt="Project Banner">
     </a>
   <br />
@@ -39,7 +39,7 @@ This repository contains the code corresponding to an in-depth tutorial availabl
 
 If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects like these step-by-step in a beginner-friendly manner!
 
-<a href="" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
+<a href="https://youtu.be/Nq8uOOMH9fg" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
 
 ## <a name="introduction">✨ Introduction</a>
 
@@ -119,7 +119,41 @@ npm install
 Create a new file named `.env` in the root of your project and add the following content:
 
 ```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+SUPABASE_SECRET_KEY=
 
+# Supabase Storage (S3-compatible)
+AWS_ENDPOINT_URL_S3=
+AWS_REGION=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+BUCKET_NAME=
+
+# Clerk
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+CLERK_WEBHOOK_SIGNING_SECRET=
+
+# OpenAI
+OPENAI_API_KEY=
+
+# PostHog
+NEXT_PUBLIC_POSTHOG_KEY=
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
+POSTHOG_API_KEY=
+POSTHOG_HOST=https://us.i.posthog.com
+
+# Arcjet
+ARCJET_KEY=
+ARCJET_ENV=development
+
+# Vercel
+VERCEL_AUTOMATION_BYPASS_SECRET=
+
+# App
+NEXT_PUBLIC_APP_URL=
 ```
 
 Replace the placeholder values with your real credentials. You can get these by signing up at: [**Supabase**](https://jsm.dev/jsmhq-supabase), [**Clerk**](https://jsm.dev/jsmhq-clerk), [**Arcjet**](https://jsm.dev/jsmhq-arcjet), and [**PostHog**](https://jsm.dev/jsmhq-posthog).

@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens (docs/project.md §13).
+ *
+ * One set of tokens, two surfaces:
+ *   <div data-surface="dark">  → landing (black, white glass)
+ *   <div data-surface="light"> → dashboard (light grey, white glass)
+ * :root defaults to light. When a page's top-level element is a dark
+ * surface, :root takes the dark values too, so the window scrollbar and
+ * the overscroll area match the page.
+ * Components use only the semantic tokens below
+ * (bg-surface, text-fg, bg-glass, border-line, rounded-panel, shadow-glass,
+ * backdrop-blur-glass…), so the same markup works on both surfaces.
+ *
+ * Never hardcode a hex, rgb or blur value in a component. Add a token here.
+ */
+
+/* Base palette: black, white and a small grey scale. Tailwind's default
+   colors are removed so only these exist. */
+@theme static {
+  --color-*: initial;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-grey-50: #fafafa;
+  --color-grey-100: #f5f5f5;
+  --color-grey-200: #e5e5e5;
+  --color-grey-300: #d4d4d4;
+  --color-grey-400: #a3a3a3;
+  --color-grey-500: #737373;
+  --color-grey-600: #525252;
+  --color-grey-700: #404040;
+  --color-grey-800: #262626;
+  --color-grey-900: #171717;
+  --color-grey-950: #0a0a0a;
+
+  /* Radius */
+  --radius-control: 0.75rem;
+  --radius-panel: 1.25rem;
+
+  /* Blur levels for glass panels and background glows */
+  --blur-glass-sm: 8px;
+  --blur-glass: 16px;
+  --blur-glass-lg: 32px;
+  --blur-glow: 80px;
+}
+
+/* Semantic tokens. `inline` makes utilities read the per-surface variable
+   directly, so a nested data-surface wrapper flips them. */
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-surface: var(--surface-bg);
+  --color-fg: var(--surface-fg);
+  --color-fg-muted: var(--surface-fg-muted);
+  --color-fg-subtle: var(--surface-fg-subtle);
+  --color-glass: var(--surface-glass);
+  --color-glass-strong: var(--surface-glass-strong);
+  --color-line: var(--surface-line);
+  --color-line-strong: var(--surface-line-strong);
+  --color-primary: var(--surface-primary);
+  --color-primary-fg: var(--surface-primary-fg);
+  --color-hover: var(--surface-hover);
+  --color-skeleton: var(--surface-skeleton);
+  --color-focus: var(--surface-focus);
+  --color-glow: var(--surface-glow);
+  --color-scrollbar-track: var(--surface-scrollbar-track);
+  --color-scrollbar-thumb: var(--surface-scrollbar-thumb);
+  --color-scrollbar-thumb-hover: var(--surface-scrollbar-thumb-hover);
+
+  --shadow-glass: var(--surface-shadow-glass);
+  --shadow-glass-lg: var(--surface-shadow-glass-lg);
+}
+
+/* Light surface (dashboard). Also the default. */
+:root,
+[data-surface="light"] {
+  color-scheme: light;
+  --surface-bg: var(--color-grey-100);
+  --surface-fg: var(--color-grey-950);
+  --surface-fg-muted: var(--color-grey-600);
+  --surface-fg-subtle: var(--color-grey-500);
+  --surface-glass: rgb(255 255 255 / 0.6);
+  --surface-glass-strong: rgb(255 255 255 / 0.85);
+  --surface-line: rgb(0 0 0 / 0.08);
+  --surface-line-strong: rgb(0 0 0 / 0.16);
+  --surface-primary: var(--color-black);
+  --surface-primary-fg: var(--color-white);
+  --surface-hover: rgb(0 0 0 / 0.05);
+  --surface-skeleton: rgb(0 0 0 / 0.07);
+  --surface-focus: rgb(0 0 0 / 0.5);
+  --surface-glow: rgb(0 0 0 / 0.07);
+  /* Thumb vs track (WCAG 1.4.11, >= 3:1): 4.35:1, hover 7.17:1. */
+  --surface-scrollbar-track: var(--color-grey-100);
+  --surface-scrollbar-thumb: var(--color-grey-500);
+  --surface-scrollbar-thumb-hover: var(--color-grey-600);
+  --surface-shadow-glass:
+    0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.06),
+    inset 0 1px 0 rgb(255 255 255 / 0.7);
+  --surface-shadow-glass-lg:
+    0 2px 4px rgb(0 0 0 / 0.04), 0 24px 48px rgb(0 0 0 / 0.1),
+    inset 0 1px 0 rgb(255 255 255 / 0.7);
+}
+
+/* Dark surface (landing). The :root selector covers pages whose top-level
+   element is a dark surface (the page is a direct child of <body>). */
+[data-surface="dark"],
+:root:has(> body > [data-surface="dark"]) {
+  color-scheme: dark;
+  --surface-bg: var(--color-black);
+  --surface-fg: var(--color-white);
+  --surface-fg-muted: var(--color-grey-400);
+  --surface-fg-subtle: var(--color-grey-500);
+  --surface-glass: rgb(255 255 255 / 0.04);
+  --surface-glass-strong: rgb(255 255 255 / 0.08);
+  --surface-line: rgb(255 255 255 / 0.1);
+  --surface-line-strong: rgb(255 255 255 / 0.2);
+  --surface-primary: var(--color-white);
+  --surface-primary-fg: var(--color-black);
+  --surface-hover: rgb(255 255 255 / 0.08);
+  --surface-skeleton: rgb(255 255 255 / 0.08);
+  --surface-focus: rgb(255 255 255 / 0.6);
+  --surface-glow: rgb(255 255 255 / 0.1);
+  /* Thumb vs track (WCAG 1.4.11, >= 3:1): 4.18:1, hover 7.85:1. */
+  --surface-scrollbar-track: var(--color-grey-950);
+  --surface-scrollbar-thumb: var(--color-grey-500);
+  --surface-scrollbar-thumb-hover: var(--color-grey-400);
+  --surface-shadow-glass:
+    0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px rgb(0 0 0 / 0.5),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
+  --surface-shadow-glass-lg:
+    0 2px 4px rgb(0 0 0 / 0.4), 0 32px 64px rgb(0 0 0 / 0.6),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+}
+
+/* Light surface, dark theme (dashboard, sign-in/up). Same token names, dark
+   values, when <html data-theme="dark"> (lib/theme sets it before paint from
+   the visitor's choice: light, dark, or system = prefers-color-scheme).
+   `color-scheme: dark` also switches Clerk's default theme to dark.
+   The landing page keeps its own dark surface (its :root rule above is more
+   specific), and /embed never gets data-theme. Text contrast (AA):
+   fg 19.8:1, fg-muted 13.4:1, fg-subtle 7.8:1 on grey-950. */
+:root[data-theme="dark"],
+:root[data-theme="dark"] [data-surface="light"] {
+  color-scheme: dark;
+  --surface-bg: var(--color-grey-950);
+  --surface-fg: var(--color-white);
+  --surface-fg-muted: var(--color-grey-300);
+  --surface-fg-subtle: var(--color-grey-400);
+  --surface-glass: rgb(255 255 255 / 0.05);
+  --surface-glass-strong: rgb(255 255 255 / 0.08);
+  --surface-line: rgb(255 255 255 / 0.1);
+  --surface-line-strong: rgb(255 255 255 / 0.2);
+  --surface-primary: var(--color-white);
+  --surface-primary-fg: var(--color-black);
+  --surface-hover: rgb(255 255 255 / 0.08);
+  --surface-skeleton: rgb(255 255 255 / 0.08);
+  --surface-focus: rgb(255 255 255 / 0.6);
+  --surface-glow: rgb(255 255 255 / 0.06);
+  /* Thumb vs track (WCAG 1.4.11, >= 3:1): 4.18:1, hover 7.85:1. */
+  --surface-scrollbar-track: var(--color-grey-950);
+  --surface-scrollbar-thumb: var(--color-grey-500);
+  --surface-scrollbar-thumb-hover: var(--color-grey-400);
+  --surface-shadow-glass:
+    0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px rgb(0 0 0 / 0.5),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
+  --surface-shadow-glass-lg:
+    0 2px 4px rgb(0 0 0 / 0.4), 0 32px 64px rgb(0 0 0 / 0.6),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+}
+
+/* Style variant for anything inside a dark surface, e.g. `surface-dark:…`. */
+@custom-variant surface-dark (&:where([data-surface="dark"], [data-surface="dark"] *));
+
+@layer base {
+  body {
+    @apply bg-surface text-fg font-sans antialiased;
+  }
+
+  [data-surface] {
+    @apply bg-surface text-fg;
+  }
+
+  /* Scrollbars follow the surface. scrollbar-color inherits as a computed
+     color, so it's set on every surface, not only on :root: a nested
+     surface (and every scroll area inside it) gets its own colors. */
+  :root,
+  [data-surface] {
+    scrollbar-color: var(--surface-scrollbar-thumb) var(--surface-scrollbar-track);
+  }
+
+  /* Older Safari has no scrollbar-color. Browsers that support it ignore
+     ::-webkit-scrollbar once scrollbar-color is set, so this is scoped. */
+  @supports not (scrollbar-color: auto) {
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+      background-color: var(--surface-scrollbar-track);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border: 3px solid var(--surface-scrollbar-track);
+      border-radius: 9999px;
+      background-color: var(--surface-scrollbar-thumb);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--surface-scrollbar-thumb-hover);
+    }
+
+    ::-webkit-scrollbar-corner {
+      background-color: var(--surface-scrollbar-track);
+    }
+  }
+}
