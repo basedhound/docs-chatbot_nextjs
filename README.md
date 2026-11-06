@@ -102,8 +102,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/jsmastery-pro/askwell.git
-cd askwell
+git clone [git remote URL]
 ```
 
 **Installation**
